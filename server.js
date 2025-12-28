@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 const candidatRoutes = require('./routes/candidatRoutes');
 app.use('/api/candidats', candidatRoutes);
 
-// 4. IMPORTANT : Ne PAS utiliser app.listen() si tu es sur Vercel
+// 4. IMPORTANT : Ne PAS utiliser app.listen() si tu es sur Vercel ok
 // Vercel gère le démarrage tout seul.
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 5000;
