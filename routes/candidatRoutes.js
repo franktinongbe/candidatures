@@ -46,4 +46,14 @@ router.post('/postuler', upload.fields([
   }
 });
 
+// Route pour récupérer tous les candidats
+router.get('/liste', async (req, res) => {
+  try {
+    const candidats = await Candidat.find().sort({ createdAt: -1 }); // Les plus récents en premier
+    res.json(candidats);
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la récupération des données" });
+  }
+});
+
 module.exports = router;
